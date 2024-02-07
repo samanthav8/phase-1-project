@@ -1,3 +1,13 @@
 #header-search{
     text-align: center;
 }
+
+
+#show-collection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
