@@ -1,4 +1,9 @@
-#header-search{
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+}
+
+#header{
     text-align: center;
 }
 
@@ -9,5 +14,36 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    gap: 20px 20px;
+    padding: 25px 50px;
+}
+
+.card {
+    text-align: left;
+    border: black 1px;
+    border-style: solid;
+    width: 250px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+}
+
+.card h4 {
+    font-size: 14px;
+}
+
+.card-img {
+    width: auto;
+    height: 300px;
+    display: block;
+    margin: auto;
+}
+
+.summary-btn {
+    border-style: none;
+    background-color: white;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
