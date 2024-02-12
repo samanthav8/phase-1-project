@@ -30,6 +30,7 @@ function removeHighlight(card) {
 function renderShows(shows){
     //Grab the show-collection container
     const showCollection = document.getElementById('show-collection');
+    showCollection.innerHTML = '';
     //Iterate through each show
     shows.forEach(obj => {
         //Create card element + give it a class name
