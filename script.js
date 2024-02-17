@@ -43,7 +43,7 @@ function renderShows(shows){
         <h4>Network: ${obj.show.network.name}</h4>
         <h4>Genre: ${obj.show.genres}</h4>
         <h4>Rating: ${obj.show.rating.average}</h4>
-        <button class="summary-btn">Summary ⌄</button>
+        <button class="summary-btn">Summary ↓</button>
         `;
         //Append cards to the show collection container
         showCollection.appendChild(card);
@@ -51,17 +51,25 @@ function renderShows(shows){
         const summaryButton = card.querySelector('.summary-btn');
         //Add an event listener to the summary button to get show summary data
         summaryButton.addEventListener('click', () => {
-            //Create summary container + give it a class name
-            const summaryContainer = document.createElement('div');
-            summaryContainer.className = 'summary-container'
-            //Adding summary to the summary container
-            summaryContainer.innerHTML = `
-            <p>${obj.show.summary}</p>
-            `;
-            //Append the summary container on card 
-            card.appendChild(summaryContainer)
-            
-        })
+            // Check if the summary container already exists
+            const existingSummary = card.querySelector('.summary-container');
+            if (existingSummary) {
+                 // If it exists, remove it
+                existingSummary.remove();
+                //Change the text of the button to show down arrow for more
+                summaryButton.innerHTML = 'Summary ↓'
+            } else {
+                // If it doesn't exist, create and append the summary container
+                const summaryContainer = document.createElement('div');
+                summaryContainer.className = 'summary-container';
+                summaryContainer.innerHTML = `
+                <p>${obj.show.summary}</p>
+                `;
+                card.appendChild(summaryContainer);
+                //Change the text of the button to show up arrow for collapse
+                summaryButton.innerHTML = 'Summary ↑'
+            };
+        });
         //Mouse over event to add the highlight color
         card.addEventListener('mouseover', () => {
             addHighlight(card);
