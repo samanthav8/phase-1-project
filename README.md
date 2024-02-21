@@ -28,7 +28,7 @@ This is a simple web application that allows users to explore TV shows. Users ca
 Contributions are welcome! Here's how you can contribute to the project:
 
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/yourfeature`).
+2. Create a new branch (`git checkout -b feature`).
 3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature/yourfeature`).
+4. Push to the branch (`git push origin feature`).
 5. Create a new Pull Request.
