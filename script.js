@@ -1,23 +1,22 @@
 //Fetch Requests
-
 function fetchShows(){
     //Grab Search Bar Element
     const searchForm = document.getElementById('search-bar');
     //Add event listener to the search form 
     searchForm.addEventListener('submit', (event) => {
-        //preventDefault so that the page doesnt refresh
+        //Prevent default form submission behavior
         event.preventDefault();
-        //Grab the input of the search
+        //Grab the input value of the search
         const searchInput = document.getElementById('search').value;
-        //Fetch data from API
+        //Send a fetch request to the API
         fetch(`https://api.tvmaze.com/search/shows?q=${searchInput}`)
+        //Parse response as JSON
         .then(response => response.json())
-        //Show data is then used to render shows
+        //Call function to render shows with the fetched data
         .then(shows => renderShows(shows))
     })
 }
 //Add Border Highlight to Card
-
 function addHighlight(card) {
     card.style.borderColor = 'pink';
 }
@@ -30,13 +29,14 @@ function removeHighlight(card) {
 function renderShows(shows){
     //Grab the show-collection container
     const showCollection = document.getElementById('show-collection');
+    //Clear the contects of the container
     showCollection.innerHTML = '';
     //Iterate through each show
     shows.forEach(obj => {
         //Create card element + give it a class name
         const card = document.createElement('div');
         card.className = 'card'; 
-        //Add text, + images to each card + create button element
+        //Add text, images to each card + create button element
         card.innerHTML = `
         <img class= "card-img"src="${obj.show.image.original}" alt=""/>
         <h2>${obj.show.name}</h2>
@@ -49,7 +49,7 @@ function renderShows(shows){
         showCollection.appendChild(card);
         //Grab the summary button
         const summaryButton = card.querySelector('.summary-btn');
-        //Add an event listener to the summary button to get show summary data
+        //Add an event listener to the summary button to toggle show summary data
         summaryButton.addEventListener('click', () => {
             // Check if the summary container already exists
             const existingSummary = card.querySelector('.summary-container');
